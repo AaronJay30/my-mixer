@@ -646,3 +646,7 @@ def edit_account_name():
         return redirect("/account")
     else:
         return render_template("edit_account_name.html", user=user)
+
+
+if __name__ == "__main__":
+    app.run()
