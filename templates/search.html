@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block image %}
+    {% for users in user %}
+        <img src="/static/avatar/{{ users.profile }}.png" style="width: 100px; margin-left: 100px; margin-bottom: 40px;">
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block name %}
+    {% for users in user %}
+        {{ users.firstName }} {{ users.lastName }}
+        <br>
+        <div class="small text-center text-muted" style="font-size: 15px;">@{{users.username}}</div>
+        <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block search %}
+    <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input autocomplete="off" class="form-control mr-sm-2 text-danger" name="search" type="search" placeholder="Search" aria-label="Search" style="width: 1000px; margin-left: 200px;">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+    </form>
+{% endblock %}
+
+{% block push %}
+<a href="/mix"><button type="button" class="btn btn-outline-danger btn-lg text-center" style="font-size: 20px; width: 200px; border-radius: 30px; z-index: 1;">+ Mix</button></a>
+{% endblock %}
+
+{% block page %}
+    <div for="post" class="text-danger" style="font-size: 40px; margin-left: -95px; margin-bottom: -5px; ">You've search "{{searchName}}":</div>
+    <hr class="border-danger" style="margin-left: -200px; width: 1550px; margin-bottom: 1px; ">
+
+    <br>
+    <br>
+    <div class="card" style="width: 1300px; margin-left: -100px; z-index: 0;">
+        {% for search in searched %}
+            <div class="card-body" >
+                  <h5 class="card-title text-danger" style="font-size: 30px; margin-left: 10px;"> <img src="/static/avatar/{{ search.profile }}.png" style="width: 60px;">{{ search.full_name }}
+                      <a href="/friends_profile/{{search.id}}" class="text-center text-light" style="font-size: 20px; z-index: 1;"><i class="fas fa-caret-left"></i> Visit</a></li>
+                  </h5>
+            </div>
+            <hr class="border-danger" style="width: 1300px; margin-top: 5px; ">
+        {% endfor %}
+    </div>
+        <br>
+
+
+{% endblock %}
+
+{% block footer %}
+    Website created by <a href="http://aaronjay.ml">Aaron Jay Gabato</a>. View social media account <a href="https://www.facebook.com/gabato.aaron30">Facebook</a> <a href="https://www.instagram.com/aaaaarondalla/">Instagram</a>.
+{% endblock %}

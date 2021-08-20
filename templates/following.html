@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block image %}
+    {% for users in user %}
+        <img src="static/avatar/{{ users.profile }}.png" style="width: 100px; margin-left: 100px; margin-bottom: 40px;">
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block name %}
+    {% for users in user %}
+        {{ users.firstName }} {{ users.lastName }}
+        <br>
+        <div class="small text-center text-muted" style="font-size: 15px;">@{{users.username}}</div>
+        <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block search %}
+    <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input autocomplete="off" class="form-control mr-sm-2 text-danger" name="search" type="search" placeholder="Search" aria-label="Search" style="width: 1000px; margin-left: 200px;">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+    </form>
+{% endblock %}
+
+{% block push %}
+<a href="/mix"><button type="button" class="btn btn-outline-danger btn-lg text-center" style="font-size: 20px; width: 200px; border-radius: 30px; z-index: 1;">+ Mix</button></a>
+{% endblock %}
+
+{% block page %}
+
+        {% for index in range(totalPost - 1, -1, -1) %}
+                <div class="card " style="width: 1300px; margin-left: -100px; z-index: 0;">
+                  <div class="card-body" >
+                      <h5 class="card-title text-danger" style="font-size: 30px; margin-left: 10px;"> <img src="/static/avatar/{{ size[index].profile }}.png" style="width: 60px;">{{ size[index].name }}
+                          <a href="/friends_profile/{{size[index].user_id}}" class="text-center text-light" style="font-size: 20px; z-index: 1;"><i class="fas fa-caret-left"></i> Visit</a></li>
+                      </h5>
+                      <br>
+                      <h6 class="card-subtitle mb-2 text-muted text-danger" style="font-size: 15px;">{{ size[index].date }} {{ size[index].time }} {{ size[index].action }}</h6>
+                      <p class="card-text text-light" style="font-size: 18px;">{{ size[index].content }}</p>
+                      <hr class="border-danger" style="width: 1280px; margin-left: -8px; ">
+                      {% if size[index].id in react_id %}
+                            <form action="/unliked/{{size[index].id}}" method="get">
+                                <button name="following" value="followings" type="submit" class="btn-danger btn" style="float:left; width:150px; margin-right: 20px;">Unliked {{size[index].react_count}}</button>
+                            </form>
+                      {% else %}
+                            <form action="/like/{{size[index].id}}" method="get">
+                                <button name="following" value="followings" type="submit" class="btn btn-outline-danger" style="float:left; width:150px; margin-right: 20px;">Like {{size[index].react_count}}</button>
+                            </form>
+                      {% endif %}
+                      <form action="/comment/{{ size[index].id }}">
+                         <button type="submit" class="btn btn-outline-danger" style="width:150px;">Comment {{ size[index].comment_count }}</button>
+                      </form>
+                  </div>
+                </div>
+                <br>
+        {% endfor %}
+
+
+{% endblock %}
+
+{% block footer %}
+    Website created by <a href="http://aaronjay.ml">Aaron Jay Gabato</a>. View social media account <a href="https://www.facebook.com/gabato.aaron30">Facebook</a> <a href="https://www.instagram.com/aaaaarondalla/">Instagram</a>.
+{% endblock %}

@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+    margin-top: 10px;
+    margin-left: 10px;
+
+
+}
+
+#dropbutton:hover
+{
+    background-color:#0d0d0d;
+}
+
+label{
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+
+.login{
+    display: inline-block;
+    margin-right: 30px;
+    text-align: left;
+}
+
+.enter_space
+{
+    margin-top: 10px;
+}
+.register{
+    display: inline-block;
+    margin-right: 19.5px;
+    text-align: left;
+}
+
+
+.form-control:focus {
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.form-control:valid {
+  background-color:  black!important;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main .textDesign
+{
+    font-weight: Bold;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.heading
+{
+    font-weight: Bold;
+
+}
+
+table th,
+table td {
+    color: white;
+    padding: 0.75rem;
+    vertical-align: middle;
+    font-size: 19px;
+}
+
+tr
+{
+    border-top: 1px solid #ddd;
+}
+nav
+{
+    background: #0d0d0d;
+
+}
+
+a{
+
+    color: white;
+}
+
+.logo
+{
+    width: 400px;
+    height: auto;
+    margin: -40px;
+    margin-bottom: -100px;
+    margin-top: -100px;
+    margin-left: 12%;
+}
+
+.tagline
+{
+    margin-top: 21.5px;
+    font-family: "Varela Round";
+    font-size: 15px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 40;
+    letter-spacing: 2px;
+    background: -webkit-linear-gradient(#ff8e44, #d85a6c, #f91362);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+h1
+{
+    color:white;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 25px;
+    text-align:center;
+    margin:20px;
+}
+
+.dark
+{
+    background: black;
+}
+
+.card
+{
+    background: #0d0d0d;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+.bgimg
+{
+    background-image: url("static/pattern.png");
+}
+
+.mixer {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  background: -webkit-linear-gradient(#ff8e44, #d85a6c, #f91362);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blink
+{
+    animation: fade 5s;
+    visibility: hidden;
+}
+@keyframes fade
+{
+    100% { visibility: hidden; }
+    0% { visibility: visible; }
+}
+
+.blinkError
+{
+    animation: blink 5s;
+    visibility: hidden;
+}
+@keyframes blink
+{
+    100% { visibility: hidden; }
+    0% { visibility: visible; }
+}
+
+.navHover:Hover
+{
+    color: #dc3545;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  z-index: -1;
+  width: 300px;
+  height: 100%;
+  background: #0d0d0d;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #dc3545;
+}
+
+.wrapper .sidebar ul li:hover a:hover{
+  color: white;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}

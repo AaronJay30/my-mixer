@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+
+{% block image %}
+    {% for users in user %}
+        <img src="/static/avatar/{{ users.profile }}.png" style="width: 100px; margin-left: 100px; margin-bottom: 40px;">
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block name %}
+    {% for users in user %}
+        {{ users.firstName }} {{ users.lastName }}
+        <br>
+        <div class="small text-center text-muted" style="font-size: 15px;">@{{users.username}}</div>
+        <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block search %}
+    <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input autocomplete="off" class="form-control mr-sm-2 text-danger" name="search" type="search" placeholder="Search" aria-label="Search" style="width: 1000px; margin-left: 200px;">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+    </form>
+{% endblock %}
+
+
+{% block page %}
+    {% for posts in post %}
+        <form action="/edit/{{ id }}" method="post">
+        <div class="form-group">
+            <label for="post" class="text-danger" style="font-size: 40px;">Edit</label>
+            <textarea class="form-control text-light" id="post" placeholder="{{ posts.content }}" autofocus name="content" style="width: 1030px; height: 200px; font-size: 20px;"></textarea>
+            <br>
+            <button class="register btn btn-danger" type="submit" style="float: right; width: 80px; text-align: center;">Post</button>
+        </div>
+    </form>
+    {% endfor %}
+{% endblock %}
+
+{% block footer %}
+    Website created by <a href="http://aaronjay.ml">Aaron Jay Gabato</a>. View social media account <a href="https://www.facebook.com/gabato.aaron30">Facebook</a> <a href="https://www.instagram.com/aaaaarondalla/">Instagram</a>.
+{% endblock %}
